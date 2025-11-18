@@ -1,26 +1,33 @@
-setTimeout(() => {
-    console.log('later');
-}, 10_000);
+console.log(window, document);
+let heading = document.querySelector('h1');
+console.log({heading});
+heading.innerText = 'Hello DOM!';
 
-console.log('now');
+let button = document.querySelector('button');
 
-setInterval(() => {
-    console.log('again');
-}, 10_000);
-
-let answer = fetch('http://127.0.0.1:5500/').then(response => {
-    console.log(response.text());
-}).then(text => {
-    console.log(text);
-});
-console.log(answer);
-
-
-async function getText() {
-    let response = await fetch('http://127.0.0.1:5500/');
-console.log(response);
-let text = await response.text();
-console.log(text);
+function getRandomColor() {
+  let letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
-await getText();
+button.addEventListener('click', event => {
+    console.log(event);
+    let color = getRandomColor();
+    heading.innerText = 'Such click, Much wow';
+    heading.style.color = getRandomColor();
+});
+
+setInterval(() => {
+    document.documentElement.style.backgroundColor = getRandomColor();
+}, 10000);
+
+let input = document.querySelector('input');
+
+input.addEventListener('input', event => {
+    console.log(event);
+    heading.innerText = input.value.split('').reverse().join('');
+});
