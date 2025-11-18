@@ -1,72 +1,33 @@
-function hello() {
-    console.log("Hello, world!")
-}
+let nums = [1, 2, 3, 4];
+let moreNums = [5, 6, ...nums, 7, 8];
+console.log(moreNums);
 
-hello();
-hello();
-hello();
-
-function helloName(name) {
-    console.log(`Hello ${name}!`);
-}
-
-helloName('Keira');
-helloName('Laura');
-helloName('Mia');
-helloName();
-
-function sum(a, b) {
-    return a + b;
-    console.log("This will never be execu"); // never runs
-}
-
-let answer = sum(4, 6);
-console.log(answer);
-
-let sum2 = function (a, b) {
-    return a+b;
-}
-console.log(sum2(3, 5));
-
-let sum3 = (a, b) => {
-    return a + b;
-}
-
-console.log(sum3(2,3));
-
-let sum4 = (a, b) => a + b;
-
-console.log(sum4(6,4));
-
-let square = a => a*a;
-
-console.log(square(6));
-
-let obj = {
-    name: 'Keira' ,
-    age: 17 ,
-    sum1: function(a, b) {
-        return a + b+this.age;
-    },
-    sum2: (a, b) => {
-        return a + b+this.age; 
-    },
-    sum3: (a, b) => a + b+this.age,
-    sum4(a, b) {
-        return a + b+this.age;
+function sum(...args) {
+    console.log(args);
+    let sum = 0;
+    for(let i=0; i<args.length; i++) {
+        sum+=args[i];
     }
-};
-
-console.log(obj.sum1(1,1));
-console.log(obj.sum2(1,1));
-console.log(obj.sum3(1,1));
-console.log(obj.sum4(1,1));
-
-function recursive(i){
-    if(i<=10){
-        console.log(i);
-        recursive(i+1);
-    }
+    return sum;
 }
 
-recursive(0);
+sum(1,2);
+let a = sum(1,2,3,4,5,6,7,8,9);
+console.log(a);
+a =sum(...moreNums);
+console.log(a);
+
+let person = {
+    name: 'Keira',
+    age: 17,
+}
+
+let {name, age} = person;
+console.log(name);
+console.log(age);
+
+function ageSquared({age}) {
+    return age*age;
+}
+
+console.log(ageSquared(person));
