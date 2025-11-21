@@ -1,0 +1,28 @@
+{
+  "name": "learnjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeiraK2/learnjs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KeiraK2/learnjs/issues"
+  },
+  "homepage": "https://github.com/KeiraK2/learnjs#readme",
+  "dependencies": {
+    "bulma": "^1.0.4",
+    "vite": "^7.2.2"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.93.3"
+  }
+}
