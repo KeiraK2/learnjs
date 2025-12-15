@@ -6,7 +6,7 @@ defineProps(['active', 'titles']);
         <ul>
             <li v-for="(title, index) in titles" 
                 :class="{'is-active': index === active}"
-                @click="$emit('change', index)">
+                @click="$emit('change',)">
 
                 <a>{{ title }}</a>
 

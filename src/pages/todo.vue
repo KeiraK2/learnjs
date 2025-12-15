@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue';
-import ItemList from './components/ItemList.vue';
+import ItemList from '../components/ItemList.vue';
 
 let message = ref('Hello Vue');
 let isDanger = ref(false);
