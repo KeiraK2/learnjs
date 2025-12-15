@@ -1,14 +1,15 @@
 <script setup>
 import { computed, ref } from 'vue';
+import ItemList from './ItemList.vue';
 
 let message = ref('Hello Vue');
 let isDanger = ref(false);
 let newItem = ref('Viin');
 let i = 0;
 let items = ref([
-    {id: i++, name: 'Õlu', isDone: false},
+    {id: i++, name: 'Õlu', isDone: true},
     {id: i++, name: 'Monsu', isDone: false},
-    {id: i++, name: 'Sai', isDone: false},
+    {id: i++, name: 'Sai', isDone: true},
     {id: i++, name: 'Leib',isDone: false},
 ]);
 
@@ -19,7 +20,8 @@ function add() {
     newItem.value = '';
 }
 
-let doneItems = computed(() =>  items.value.filter(item => item.isDone));
+let doneItems = computed(() => items.value.filter(item => item.isDone));
+let toDoItems = computed(() => items.value.filter(item => !items.isDone));
 
 </script>
 
@@ -42,26 +44,12 @@ let doneItems = computed(() =>  items.value.filter(item => item.isDone));
                     </button>
                 </div>
             </div>
-            <h1>{{ newItem.split(''),reverse(),join()}}</h1>
+            <h1>{{ newItem.split('').reverse().join('') }}</h1>
 
 
-            <h1>All Items</h1>
-            <ul>
-                <li v-for="item in Doneitems">
-                    {{ item.name }}
-                    <input type="checkbox" v-model="item.isDone">
-                </li>
-            </ul>
-
-            <h1>Done Items</h1>
-            <ul>
-                <li v-for="item in Doneitems">
-                    {{ item.name }}
-                    <input type="checkbox" v-model="item.isDone">
-                </li>
-            </ul>
-
-            
+            <ItemList :items="items" title="All Items"></ItemList>
+            <ItemList :items="doneitems" title="Done Items"></ItemList>
+            <ItemList :items="toDoItems" title="ToDo Items"></ItemList>
         </div>
     </div>
 </template>
